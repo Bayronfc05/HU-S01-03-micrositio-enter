@@ -51,7 +51,7 @@
 - Bloque C (terminal): navegación, archivos, lectura, búsqueda, encadenar, permisos
 
 **Qué construí**
-- Ejercicio E1 completo: reto de terminal sin mouse (árbol de 3 niveles, mover, renombrar, borrar), grabado con OBS y subido a Loom
+- Ejercicio E1 completo: reto de terminal sin mouse (árbol de 3 niveles, mover, renombrar, borrar), grabado con OBS y subido a drive con enlace de acceso publico
 - Ejercicio E2 completo (cubierto dentro de X1)
 - Experimento X1 completo: arqueología DNS de 6 dominios (mercadolibre.com.co, elespectador.com, google.com, github.com, bayronfc05.github.io, eltiempo.com) con IP, tipo de registro, TTL y servidor que respondió
 - Commits y push de toda la evidencia
