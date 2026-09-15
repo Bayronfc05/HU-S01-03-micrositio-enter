@@ -45,7 +45,7 @@
 
 ## Día 2 — 14 de septiembre de 2026
 
-**Horas efectivas:** (pon tu total real, ej. 4h)
+**Horas efectivas:** (4h)
 
 **Qué estudié**
 - Bloque C (terminal): navegación, archivos, lectura, búsqueda, encadenar, permisos
