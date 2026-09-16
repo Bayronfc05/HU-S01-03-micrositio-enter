@@ -72,3 +72,40 @@
 - Bloque B: Internet (IP, DNS, HTTP, HTTPS)
 - Ejercicio E3: cacería de códigos HTTP en DevTools
 - Experimentos X2 (traceroute) y X3 (ping)
+
+## Día 3 — 15 de septiembre de 2026
+
+**Horas efectivas:** 4.5 h (práctica: 3.5 · teoría: 1)
+
+**Qué estudié**
+- Inspección detallada de protocolos de red y transporte (HTTP/HTTPS, TCP, TLS 1.3)
+- Mecanismos de caché y aceleración web mediante CDN (Fastly) y proxy (Varnish)
+- Cabeceras de respuesta HTTP y cadena de confianza de certificados TLS/SSL
+- Interpretación de códigos de estado HTTP (2xx, 3xx, 4xx) y comportamiento HSTS del navegador
+
+**Qué construí**
+- Experimento X2 (ruta de red): `investigacion/ruta.md`, trazando nodos de salto con `tracert`
+- Experimento X3 (latencia): `investigacion/latencia.md`, midiendo con `ping` y `nslookup`
+- Ejercicio E3 (cacería HTTP): `ejercicios/http.md` con capturas en `ejercicios/img/`
+- Experimento X4 (headers HTTP): `investigacion/headers.md` con `curl -I`
+- Experimento X5 (certificado TLS): `investigacion/tls.md`, cadena de confianza y grupo criptográfico post-cuántico (`X25519MLKEM768`) verificado con `openssl s_client`
+- Experimento X6 (códigos HTTP en DevTools): `investigacion/codigos.md`, 6 estados capturados (200, 301, 307 HSTS, 304, 404, 401)
+- Historial de Git limpio, commits independientes por cada experimento, subidos al remoto
+
+**En qué me atasqué y cómo salí**
+- Problema: al navegar por `http://` en DevTools, veía `307` en vez del `301` esperado
+- Solución: identifiqué que era la cabecera HSTS guardada en el navegador interceptando la petición localmente. Usé ventana de incógnito para forzar la respuesta real del servidor, y confirmé con `curl -I` que GitHub Pages sí responde 301
+
+**Uso de IA hoy**
+| Qué pregunté | Qué hice con la respuesta | ¿Entendí? |
+|---|---|---|
+| Análisis de headers HTTP (`X-Served-By`, `Via`) | Estructuré la explicación del rol de la CDN Fastly para X4 | Sí |
+| Desglose de la salida de `openssl s_client` | Documenté la cadena de certificados y el grupo TLS1.3 para X5, verificando yo mismo el output real | Sí |
+| Diferencia entre 301 de servidor y 307 por HSTS | Ajusté mi metodología de prueba (modo incógnito) para X6 | Sí |
+
+**Lo que hoy no entendí y voy a llevar a mentoría**
+- Cómo configurar directivas de caché avanzadas en un servidor sin depender del proxy por defecto de GitHub Pages
+
+**Mañana arranco por**
+- Escribir el contenido real de las 9 etapas en `index.html` (qué pasa, quién lo hace, analogía) con fuentes citadas
+- Empezar a poblar `dns.html`, `http.html`, `https.html` con los datos ya recolectados en X1-X6
