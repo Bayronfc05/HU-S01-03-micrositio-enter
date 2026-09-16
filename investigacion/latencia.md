@@ -91,7 +91,7 @@ Tiempos aproximados de ida y vuelta en milisegundos:
    **Anycast**, respondiendo desde un centro de datos (POP) cercano en la región, sin
    enviar el paquete hasta Estados Unidos.
 
-2. * **Diferencia entre `gov.co` y `www.gov.co` (~85 ms promedio):** Al intentar hacer `ping` al dominio raíz (`gov.co`), la solicitud falló. La verificación posterior con `nslookup gov.co` confirmó que el dominio raíz no posee registros de tipo `A` ni `AAAA` asignados. Al consultar el subdominio canónico `www.gov.co`, la consulta resolvió con éxito a la IP `13.249.96.2` (infraestructura CDN de Amazon CloudFront), logrando una respuesta veloz y estable de 85 ms.
+2. **Diferencia entre `gov.co` y `www.gov.co` (~85 ms promedio):** Al intentar hacer `ping` al dominio raíz (`gov.co`), la solicitud falló. La verificación posterior con `nslookup gov.co` confirmó que el dominio raíz no posee registros de tipo `A` ni `AAAA` asignados. Al consultar el subdominio canónico `www.gov.co`, la consulta resolvió con éxito a la IP `13.249.96.2` (infraestructura CDN de Amazon CloudFront), logrando una respuesta veloz y estable de 85 ms.
 
 3. **`github.com` (~112 ms promedio)**
    Latencia constante (~106-121 ms), correspondiente al tránsito por fibra óptica
