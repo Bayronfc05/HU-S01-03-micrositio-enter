@@ -1,0 +1,65 @@
+<section>
+  <h2>Headers reales de mi sitio</h2>
+  <p>Capturé estos headers con <code>curl -I</code> contra mi propio sitio:</p>
+  <table>
+    <caption>Headers de respuesta — bayronfc05.github.io</caption>
+    <thead>
+      <tr>
+        <th scope="col">Header</th>
+        <th scope="col">Valor capturado</th>
+        <th scope="col">Qué significa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Server</td>
+        <td>GitHub.com</td>
+        <td>Identifica la infraestructura del servidor de origen.</td>
+      </tr>
+      <tr>
+        <td>Content-Type</td>
+        <td>text/html; charset=utf-8</td>
+        <td>Tipo de contenido (HTML) y codificación de caracteres (UTF-8).</td>
+      </tr>
+      <tr>
+        <td>Strict-Transport-Security</td>
+        <td>max-age=31556952</td>
+        <td>HSTS: le ordena al navegador usar solo HTTPS con este sitio durante ~1 año.</td>
+      </tr>
+      <tr>
+        <td>Cache-Control</td>
+        <td>max-age=600</td>
+        <td>El navegador puede reutilizar esta respuesta en caché durante 600 segundos (10 min) sin volver a pedirla.</td>
+      </tr>
+      <tr>
+        <td>ETag</td>
+        <td>"6aa9f9bc-689"</td>
+        <td>Identificador único de esta versión del archivo; sirve para validar si cambió y así devolver un 304 en vez de reenviar todo.</td>
+      </tr>
+      <tr>
+        <td>X-Served-By</td>
+        <td>cache-bog-skbo2340037-BOG</td>
+        <td>Nodo exacto de la CDN de Fastly que respondió — en este caso, uno en Bogotá, Colombia.</td>
+      </tr>
+      <tr>
+        <td>Via</td>
+        <td>1.1 varnish</td>
+        <td>Confirma que la petición pasó por un proxy/acelerador basado en Varnish antes de llegar a mí.</td>
+      </tr>
+      <tr>
+        <td>X-Fastly-Request-ID</td>
+        <td>0f2d0052f1be5869a97c6d07e379b41e18596505</td>
+        <td>ID único de esta solicitud dentro de la red de Fastly, útil para rastreo/debug.</td>
+      </tr>
+      <tr>
+        <td>Access-Control-Allow-Origin</td>
+        <td>*</td>
+        <td>Permite que cualquier origen (cualquier otro sitio web) pueda pedir este recurso vía CORS.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Dato interesante: el header <code>X-Served-By</code> confirma que la respuesta la atendió
+  un nodo de la CDN de Fastly ubicado en Bogotá (<code>BOG</code>), no un servidor en Estados
+  Unidos — por eso la latencia hacia mi propio sitio es tan baja comparada con otros dominios
+  que sí viajan hasta EE. UU. (como vimos en los experimentos X2 y X3).</p>
+</section>
