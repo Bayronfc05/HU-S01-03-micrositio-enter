@@ -28,20 +28,73 @@
             <p>Vamos a explorar los 9 pasos del viaje completo de una petición web.</p>
         </section>
 
-        <section>
-            <h3>Los 9 pasos</h3>
-            <ol>
-                <li>Caché del navegador</li>
-                <li>Resolución DNS</li>
-                <li>Conexión TCP</li>
-                <li>Handshake TLS</li>
-                <li>Request HTTP</li>
-                <li>Response del servidor</li>
-                <li>Parsing del HTML</li>
-                <li>Descarga de recursos</li>
-                <li>Renderizado</li>
-            </ol>
-            <p><a href="#paso-1">Empecemos →</a></p>
+        <section id="recorrido">
+        <h2>Los 9 pasos</h2>
+
+        <ol class="linea-tiempo">
+        <li id="paso-1" class="paso">
+        <h3>1. El navegador revisa su caché</h3>
+            <p class="que-pasa">Antes de pedir nada a internet, el navegador revisa si ya guardó una copia de esa página o de sus archivos (CSS, imágenes) en tu propio computador, de una visita anterior. A esto se le llama <strong>caché</strong>: una copia local guardada para no tener que descargar todo de nuevo cada vez.</p>
+            <p class="quien-lo-hace">El navegador (Chrome, Firefox, Brave, etc.), sin necesitar internet para este paso.</p>
+            <p class="analogia">Es como revisar si ya tienes una fotocopia de un documento en tu cajón antes de ir a la fotocopiadora otra vez.</p>
+        </li>
+
+        <li id="paso-2" class="paso">
+        <h3>2. Resolución DNS</h3>
+            <p class="que-pasa">Si no hay nada en caché, el navegador necesita saber a qué dirección IP conectarse, porque los computadores no entienden nombres como "google.com", solo números. El sistema DNS traduce ese nombre a una dirección IP real.</p>
+            <p class="quien-lo-hace">Tu sistema operativo consulta primero su propia caché, y si no tiene la respuesta, se la pide a un servidor DNS (normalmente el de tu proveedor de internet).</p>
+            <p class="analogia">Es como buscar el número de teléfono de alguien en la agenda de contactos antes de poder llamarlo: no memorizas números, memorizas nombres, y algo se encarga de la traducción.</p>
+        </li>
+
+        <li id="paso-3" class="paso">
+        <h3>3. Conexión TCP (handshake de 3 vías)</h3>
+            <p class="que-pasa">Antes de mandar cualquier dato, tu computador y el servidor necesitan "saludarse" y confirmar que ambos están listos para hablar. Este saludo tiene 3 pasos: tu computador envía un mensaje llamado <strong>SYN</strong> (quiero conectarme), el servidor responde con <strong>SYN-ACK</strong> (recibido, yo también quiero), y tu computador confirma con <strong>ACK</strong> (perfecto, empecemos). Recién ahí queda abierta una conexión confiable.</p>
+            <p class="quien-lo-hace">El sistema operativo de tu computador y el servidor de destino, a nivel de red (protocolo TCP).</p>
+            <p class="analogia">Es como cuando llamas a alguien por teléfono: "¿hola, me escuchas?" → "sí, te escucho, ¿y tú a mí?" → "sí, perfecto" — recién ahí empiezan la conversación real.</p>
+        </li>
+
+        <li id="paso-4" class="paso">
+        <h3>4. Handshake TLS y verificación del certificado</h3>
+            <p class="que-pasa">Si el sitio usa HTTPS (como el tuyo), después de la conexión TCP hay un segundo saludo, esta vez para cifrar la comunicación. Tu navegador y el servidor se ponen de acuerdo en cómo van a encriptar los datos, y el servidor le muestra a tu navegador un <strong>certificado</strong> que prueba que es realmente quien dice ser (emitido por una entidad de confianza, como Let's Encrypt).</p>
+            <p class="quien-lo-hace">El navegador verifica el certificado; el servidor lo presenta.</p>
+            <p class="analogia">Es como pedirle su cédula a alguien antes de contarle un secreto: primero confirmas que es quien dice ser, y de paso acuerdan un "código secreto" que solo ustedes dos van a entender durante la conversación.</p>
+        </li>
+
+        <li id="paso-5" class="paso">
+        <h3>5. Envío del request HTTP GET</h3>
+            <p class="que-pasa">Con la conexión abierta y segura, el navegador finalmente envía la petición real: un mensaje HTTP pidiendo la página específica que quieres ver. El método <strong>GET</strong> significa "dame esto", a diferencia de otros métodos como POST que sirven para enviar datos (por ejemplo, un formulario).</p>
+            <p class="quien-lo-hace">El navegador arma y envía esta petición.</p>
+            <p class="analogia">Es como entrar a un restaurante y decirle al mesero exactamente qué plato del menú quieres.</p>
+        </li>
+
+        <li id="paso-6" class="paso">
+        <h3>6. El servidor procesa y responde con un código de estado</h3>
+            <p class="que-pasa">El servidor recibe la petición, busca lo que le pidieron, y responde con el contenido más un <strong>código de estado</strong> que resume qué pasó: 200 si todo salió bien, 404 si no encontró la página, 500 si algo falló del lado del servidor, entre otros.</p>
+            <p class="quien-lo-hace">El servidor de destino (en mi caso, la infraestructura de GitHub Pages).</p>
+            <p class="analogia">Es como cuando el mesero vuelve de la cocina: o te trae el plato (200), o te dice "eso ya no está en el menú" (404), o "hubo un problema en la cocina" (500).</p>
+        </li>
+
+        <li id="paso-7" class="paso">
+        <h3>7. El navegador recibe el HTML y lo parsea</h3>
+            <p class="que-pasa">El navegador recibe el código HTML como puro texto, y necesita convertirlo en una estructura que pueda entender y mostrar. A este proceso se le llama <strong>parsear</strong>: leer el texto y armar con él un árbol de elementos (llamado DOM) que representa la página.</p>
+            <p class="quien-lo-hace">El navegador.</p>
+            <p class="analogia">Es como recibir instrucciones de armado de un mueble en texto plano, y a partir de ahí ir entendiendo qué pieza va conectada con cuál, para poder armar el mueble real.</p>
+        </li>
+
+        <li id="paso-8" class="paso">
+        <h3>8. Descarga de recursos: CSS, imágenes, fuentes</h3>
+            <p class="que-pasa">Mientras arma esa estructura, el navegador se encuentra con referencias a otros archivos que la página necesita (una hoja de estilos CSS, imágenes, tipografías), y los pide por separado, cada uno con su propia petición HTTP (repitiendo, para cada uno, algo parecido a los pasos 3 a 7).</p>
+            <p class="quien-lo-hace">El navegador, haciendo varias peticiones adicionales.</p>
+            <p class="analogia">Es como armar ese mueble y darte cuenta de que faltan piezas: mandas a pedir cada una por separado antes de poder terminar.</p>
+        </li>
+
+        <li id="paso-9" class="paso">
+        <h3>9. Renderizado y pintado en pantalla</h3>
+            <p class="que-pasa">Con el HTML ya estructurado y el CSS ya descargado, el navegador calcula dónde va cada elemento en la pantalla (tamaños, posiciones, colores), y finalmente "pinta" todo eso en píxeles reales que tú puedes ver.</p>
+            <p class="quien-lo-hace">El navegador.</p>
+            <p class="analogia">Es como tener ya todas las piezas del mueble y las instrucciones claras, y por fin armarlo y ponerlo en el lugar donde vive en la casa — ahí es cuando realmente "existe" para ti.</p>
+        </li>
+        </ol>
         </section>
     </main>
 
