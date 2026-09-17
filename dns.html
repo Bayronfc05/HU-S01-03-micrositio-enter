@@ -1,0 +1,63 @@
+<main>
+  <section>
+    <h2>¿Cómo se traduce un nombre a una IP?</h2>
+    <p><!-- explicación corta de DNS, con analogía --></p>
+  </section>
+
+  <section>
+    <h2>Mis mediciones reales</h2>
+    <p>Consulté 6 dominios con <code>nslookup</code> para ver cómo responde el DNS:</p>
+    <table>
+      <caption>Resolución DNS — mediciones propias</caption>
+      <thead>
+        <tr>
+          <th scope="col">Dominio</th>
+          <th scope="col">IP(s)</th>
+          <th scope="col">Tipo de registro</th>
+          <th scope="col">TTL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>mercadolibre.com.co</td>
+          <td>54.230.144.60, .4, .84, .91</td>
+          <td>A</td>
+          <td>55 seg</td>
+        </tr>
+        <tr>
+          <td>elespectador.com</td>
+          <td>2a04:fa87:fffd::c000:425b / 192.0.66.91</td>
+          <td>AAAA + A</td>
+          <td>185 seg</td>
+        </tr>
+        <tr>
+          <td>google.com</td>
+          <td>2800:3f0:4005:41c::200e / 172.217.162.142</td>
+          <td>AAAA + A</td>
+          <td>205 seg</td>
+        </tr>
+        <tr>
+          <td>github.com</td>
+          <td>140.82.114.4</td>
+          <td>A</td>
+          <td>41 seg</td>
+        </tr>
+        <tr>
+          <td>bayronfc05.github.io</td>
+          <td>185.199.108-111.153 (x4) + 4 IPv6</td>
+          <td>A + AAAA</td>
+          <td>3281 seg (~54 min)</td>
+        </tr>
+        <tr>
+          <td>eltiempo.com</td>
+          <td>20.57.95.139</td>
+          <td>A</td>
+          <td>32 seg</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Nota: mi propio sitio tiene TTL mucho más largo (54 min) que los sitios con
+    balanceo de carga dinámico (32-205 seg) — no depende de si el sitio es colombiano
+    o global, sino de si su infraestructura cambia de IP seguido.</p>
+  </section>
+</main>
