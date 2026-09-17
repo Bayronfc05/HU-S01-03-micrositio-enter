@@ -109,3 +109,48 @@
 **Mañana arranco por**
 - Escribir el contenido real de las 9 etapas en `index.html` (qué pasa, quién lo hace, analogía) con fuentes citadas
 - Empezar a poblar `dns.html`, `http.html`, `https.html` con los datos ya recolectados en X1-X6
+
+## Día 4 — 16 de septiembre de 2026
+
+**Horas efectivas:** 4 h (práctica: 3 h · teoría: 30 min · coach: 30 min)
+
+**Qué estudié**
+- Bloque D (parte final): ramas (`branch`, `switch -c`, `merge`), qué es un conflicto
+  y cómo se resuelve, buenos mensajes de commit, cómo GitHub Pages publica desde una rama
+
+**Qué construí**
+- Ejercicio E5 completo: provoqué un conflicto de merge real entre `main` y una rama de
+  prueba, lo resolví editando el archivo a mano, documentado en `ejercicios/merge.md`
+- Estructura HTML de la línea de tiempo de las 9 etapas en `index.html`, con `id`s para
+  que el ancla `#paso-1` funcione, usando `<ol>` semántico y clases para maquetar después
+- Contenido completo de las 9 etapas (qué pasa, quién lo hace, analogía) para `index.html`
+- `FUENTES.md`: 9 fuentes técnicas diversificadas para las 9 etapas de index.html (RFC
+  9111, RFC 1034, RFC 9293, RFC 8446, RFC 9110, WHATWG HTML spec, WHATWG Fetch spec,
+  web.dev)
+
+**En qué me atasqué y cómo salí**
+- Problema: al "resolver" el conflicto de E5 la primera vez, dejé sin querer una marca de
+  conflicto suelta sin borrar. Git no valida que el archivo quede coherente, solo que yo
+  haya marcado el archivo como resuelto con `git add`
+- Solución: lo detecté revisando `git log --oneline --graph` (vi un commit extra con
+  mensaje confuso) y confirmé con `git --no-pager show <hash> -- index.html`. Corregí el
+  archivo y arreglé el mensaje del commit con `git commit --amend` antes de hacer push
+- Problema: quise recuperar el historial de comandos de la terminal con `tail`, pero
+  estaba en PowerShell, no en Git Bash, y `tail` no existe ahí
+- Solución: usé el equivalente de PowerShell (`Select-Object -Last`) para lo que hiciera
+  falta, y confirmé que no era crítico porque `git log`/`git show` ya daban la evidencia, 
+  ademas como ya habia cerrado la sesion de mi terminal en mi editor de codigo pues no pude
+  recuperar los comandos por los cual hice el video solo con los logs.
+
+**Uso de IA hoy**
+| Qué pregunté | Qué hice con la respuesta | ¿Entendí? |
+|---|---|---|
+| Estructura HTML semántica para la línea de tiempo de 9 etapas | La usé tal cual, ajustando CSS para quitar la doble numeración que generó | Sí |
+
+
+**Lo que hoy no entendí y voy a llevar a mentoría**
+- (nada bloqueante hoy)
+
+**Mañana arranco por**
+- Empezar a poblar `dns.html`, `http.html`, `https.html` con las tablas de X1-X6 y las
+  fuentes específicas de cada página
