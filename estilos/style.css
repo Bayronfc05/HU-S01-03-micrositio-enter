@@ -112,3 +112,8 @@ footer {
         margin: 2rem auto;
     }
 }
+
+.linea-tiempo {
+  list-style: none;
+  padding-left: 0;
+}
