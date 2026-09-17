@@ -154,3 +154,38 @@
 **Mañana arranco por**
 - Empezar a poblar `dns.html`, `http.html`, `https.html` con las tablas de X1-X6 y las
   fuentes específicas de cada página
+
+
+  ## Día 5 — 17 de septiembre de 2026
+
+**Horas efectivas:** 4 h (práctica: 3 h · teoría: 30 min · coach: 30 min)
+
+**Qué estudié**
+- Headers HTTP comunes (Cache-Control, ETag, Strict-Transport-Security) aplicados a mis propias capturas
+- Qué información específica no protege HTTPS/TLS (SNI, momento de conexión, análisis de tráfico)
+
+**Qué construí**
+- `dns.html`: tabla real de resolución DNS de 6 dominios (experimento X1), con IP, tipo
+  de registro, TTL y análisis de por qué mi sitio tiene TTL mucho más alto que sitios con
+  balanceo dinámico
+- `http.html`: tabla de códigos de estado (8, con "de quién es la culpa" y ejemplo real
+  o nota explícita de "no lo he visto en vivo" cuando aplica) + tabla de 9 headers reales
+  capturados con `curl -I` (experimento X4), incluyendo el hallazgo de que mi sitio lo
+  sirve un nodo de Fastly en Bogotá (`X-Served-By: cache-bog...`)
+- `https.html`: tabla del certificado TLS real (Let's Encrypt, TLS 1.3,
+  X25519MLKEM768) + sección de 3 cosas que HTTPS no protege, con fuente RFC 6066/8446
+- 3 commits independientes, uno por página, subidos al remoto
+
+**En qué me atasqué y cómo salí**
+- (nada bloqueante hoy)
+
+**Uso de IA hoy**
+| Qué pregunté | Qué hice con la respuesta | ¿Entendí? |
+|---|---|---|
+| Cómo estructurar las tablas HTML con datos ya recolectados en X1/X4/X5/X6 | Usé la estructura semántica (caption, scope) y pegué mis propios datos reales, sin inventar valores | Sí |
+
+**Lo que hoy no entendí y voy a llevar a mentoría**
+- (nada bloqueante hoy)
+
+**Mañana arranco por**
+- CSS: sistema visual del sitio y línea de tiempo de las 9 etapas con CSS puro
