@@ -45,8 +45,11 @@ nav a {
     transition: background 0.3s;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
     background-color: var(--color-secundario);
+    outline: 2px solid white;
+    outline-offset: 2px;
 }
 
 main {
@@ -98,6 +101,99 @@ footer {
     margin-top: 3rem;
 }
 
+/* ===== TABLAS (dns.html, http.html, https.html) ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    display: block;
+    overflow-x: auto;
+}
+
+caption {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primario);
+}
+
+th, td {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #eef2f7;
+}
+
+code {
+    background-color: #eef2f7;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: #eef2f7;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+/* ===== LÍNEA DE TIEMPO DE LAS 9 ETAPAS ===== */
+.linea-tiempo {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  position: relative;
+  max-width: 700px;
+}
+
+.linea-tiempo::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--color-secundario);
+}
+
+.paso {
+  position: relative;
+  padding-left: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.paso::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 0.3rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-secundario);
+  border: 3px solid var(--color-fondo);
+  z-index: 1;
+}
+
+.paso h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.paso .quien-lo-hace {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.paso .analogia {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     header {
@@ -111,9 +207,4 @@ footer {
     main {
         margin: 2rem auto;
     }
-}
-
-.linea-tiempo {
-  list-style: none;
-  padding-left: 0;
 }
