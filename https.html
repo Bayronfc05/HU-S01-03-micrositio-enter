@@ -1,24 +1,66 @@
-<section>
-  <h2>Mi certificado real</h2>
-  <table>
-    <caption>Certificado TLS de bayronfc05.github.io</caption>
-    <tbody>
-      <tr><th scope="row">Emisor (CA)</th><td>Let's Encrypt</td></tr>
-      <tr><th scope="row">Válido desde</th><td>2 de agosto de 2026</td></tr>
-      <tr><th scope="row">Válido hasta</th><td>31 de octubre de 2026</td></tr>
-      <tr><th scope="row">Algoritmo de firma</th><td>SHA256 con RSA</td></tr>
-      <tr><th scope="row">Grupo de intercambio de claves (TLS 1.3)</th><td>X25519MLKEM768 (híbrido post-cuántico)</td></tr>
-      <tr><th scope="row">Cifrado de sesión</th><td>TLS_AES_128_GCM_SHA256</td></tr>
-    </tbody>
-  </table>
-  <p>Verificado con <code>openssl s_client -connect bayronfc05.github.io:443</code> el 16 de septiembre de 2026.</p>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTPS — ¿Qué pasa cuando presionás Enter?</title>
+  <meta name="description" content="Cómo se cifra la conexión con TLS, el certificado real de mi sitio, y qué NO protege HTTPS.">
+  <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>¿Qué pasa cuando presionás Enter?</h1>
+      <ul>
+        <li><a href="index.html">El recorrido</a></li>
+        <li><a href="dns.html">DNS</a></li>
+        <li><a href="http.html">HTTP</a></li>
+        <li><a href="https.html" aria-current="page">HTTPS</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section>
-  <h2>Qué NO protege HTTPS (mínimo 3 cosas)</h2>
-  <ul>
-    <li><strong>El dominio al que te conectas</strong>: viaja visible en la extensión SNI del ClientHello (RFC 6066), salvo que se use Encrypted ClientHello (ECH), poco extendido aún.</li>
-    <li><strong>El momento y duración de la conexión</strong>: un observador en la red ve cuándo empezaste y terminaste de comunicarte con un servidor.</li>
-    <li><strong>El volumen y patrón del tráfico</strong>: el tamaño y frecuencia de los paquetes cifrados puede analizarse para inferir actividad (RFC 8446, sección "Traffic Analysis").</li>
-  </ul>
-</section>
+  <main>
+    <section>
+      <h2>¿Qué protege HTTPS?</h2>
+      <p>HTTPS es HTTP, pero con una capa extra de seguridad llamada <strong>TLS</strong>.
+      Antes de enviar cualquier dato, el navegador y el servidor hacen un
+      <strong>handshake</strong> (saludo) para ponerse de acuerdo en cómo cifrar la
+      comunicación, y el servidor presenta un <strong>certificado</strong> que prueba que
+      es realmente quien dice ser. Con esto, nadie en el camino (tu red WiFi, tu proveedor
+      de internet) puede leer o modificar el contenido de lo que envías o recibes. Es como
+      pedirle la cédula a alguien antes de contarle un secreto, y de paso acordar un
+      "código" que solo ustedes dos van a entender durante la conversación.</p>
+    </section>
+
+    <section>
+      <h2>Mi certificado real</h2>
+      <table>
+        <caption>Certificado TLS de bayronfc05.github.io</caption>
+        <tbody>
+          <tr><th scope="row">Emisor (CA)</th><td>Let's Encrypt</td></tr>
+          <tr><th scope="row">Válido desde</th><td>2 de agosto de 2026</td></tr>
+          <tr><th scope="row">Válido hasta</th><td>31 de octubre de 2026</td></tr>
+          <tr><th scope="row">Algoritmo de firma</th><td>SHA256 con RSA</td></tr>
+          <tr><th scope="row">Grupo de intercambio de claves (TLS 1.3)</th><td>X25519MLKEM768 (híbrido post-cuántico)</td></tr>
+          <tr><th scope="row">Cifrado de sesión</th><td>TLS_AES_128_GCM_SHA256</td></tr>
+        </tbody>
+      </table>
+      <p>Verificado con <code>openssl s_client -connect bayronfc05.github.io:443</code> el 16 de septiembre de 2026.</p>
+    </section>
+
+    <section>
+      <h2>Qué NO protege HTTPS (mínimo 3 cosas)</h2>
+      <ul>
+        <li><strong>El dominio al que te conectas</strong>: viaja visible en la extensión SNI del ClientHello (RFC 6066), salvo que se use Encrypted ClientHello (ECH), poco extendido aún.</li>
+        <li><strong>El momento y duración de la conexión</strong>: un observador en la red ve cuándo empezaste y terminaste de comunicarte con un servidor.</li>
+        <li><strong>El volumen y patrón del tráfico</strong>: el tamaño y frecuencia de los paquetes cifrados puede analizarse para inferir actividad (RFC 8446, sección "Traffic Analysis").</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Micrositio educativo — Fundación CEPAV, Impulso Digital. Bayron Fuentes, 2026.</p>
+  </footer>
+</body>
+</html>
