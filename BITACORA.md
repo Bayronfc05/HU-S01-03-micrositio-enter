@@ -189,3 +189,68 @@
 
 **Mañana arranco por**
 - CSS: sistema visual del sitio y línea de tiempo de las 9 etapas con CSS puro
+
+## Día 6 — 18 de septiembre de 2026 (avance de Días 6, 7 y 8 del plan)
+
+**Horas efectivas:** 5 horas y 40 min (práctica: 4:20 · teoría: 50 min · coach: 30 min)
+
+**Qué estudié**
+- Bloque E (CSS): selectores y especificidad, box model, box-sizing: border-box, Flexbox
+  (display: flex, justify-content, align-items, gap)
+
+**Qué construí**
+
+*Día 6 — Maquetación:*
+- Sistema de variables CSS consolidado en un solo archivo (`style.css`), eliminando un
+  conflicto que tenía con un segundo archivo `variables.css` con nombres y valores
+  distintos que se pisaban entre sí
+- Línea de tiempo de las 9 etapas maquetada con CSS puro (línea vertical + círculos con
+  `::before`, sin imágenes ni JavaScript) — CA-3
+- Navegación del header con Flexbox, con foco visible (`:focus-visible`) para teclado
+- **Bug importante encontrado y corregido:** `dns.html`, `http.html` y `https.html`
+  solo tenían el fragmento de `<main>`, sin `<!DOCTYPE>`, `<head>`, `<link>` al CSS,
+  `<header>` ni `<footer>`. Reconstruí las 3 con la estructura completa, agregué el contenido faltante (explicación de DNS
+  que había quedado como comentario vacío) y la tabla de códigos de estado que faltaba
+  en `http.html`
+
+*Día 7 — Responsive (adelantado hoy mismo):*
+- Verificado de 320px a 1440px: tablas con scroll horizontal propio (no de la página),
+  nav se vuelve vertical en pantallas chicas, línea de tiempo estable — sin necesitar
+  media queries adicionales (RC-7)
+
+*Día 8 — Accesibilidad (adelantado hoy mismo):*
+- Navegación completa por teclado (Tab/Enter/flechas) con foco visible
+- Contraste de color verificado: 5.52:1 en todas las combinaciones (supera AA)
+- Jerarquía de headings correcta, un solo h1 por página (RC-5, RC-9)
+- Confirmé que RC-6 (alt en imágenes) no aplica por ahora: el sitio no tiene imágenes,
+  y no es un requisito obligatorio de la rúbrica tenerlas
+
+*Fuentes y organización:*
+- `FUENTES.md` consolidado a 15 fuentes técnicas de alta calidad (RFC, WHATWG, web.dev),
+  cubriendo las 4 páginas del sitio, fusionando entradas que repetían el mismo RFC
+- Publiqué el link de mi repositorio y del sitio en vivo como comentario en mi Issue de
+  la fundación 
+- Ubiqué el repo de mi compañera de peer review (Estudiante 4) en el Issue de la fundación
+
+**En qué me atasqué y cómo salí**
+
+- Problema: el sitio en vivo no mostraba los cambios aunque el editor sí los veía
+- Solución: confirmé con `git status` que el archivo tenía cambios sin commitear/pushear;
+  aprendí a distinguir la vista previa local del estado real del sitio publicado
+- Problema: las tablas se desbordaban horizontalmente en móvil, pensé que era un bug
+- Solución: confirmé que era el comportamiento correcto (scroll contenido dentro de la
+  tabla, no de toda la página), tal como exige CA-12 para bloques de código
+
+**Uso de IA hoy**
+| Qué pregunté | Qué hice con la respuesta | ¿Entendí? |
+|---|---|---|
+| Por qué el CSS de la línea de tiempo no se veía | Diagnostiqué el conflicto de dos archivos de variables y consolidé en uno | Sí |
+| Si el "desborde" de las tablas en móvil era un error | Confirmé que era el comportamiento esperado según mi propia rúbrica (CA-12) | Sí |
+
+
+**Lo que hoy no entendí y voy a llevar a mentoría**
+- (nada bloqueante hoy)
+
+**Mañana arranco por**
+- Peer review al Estudiante 4: 5 comentarios útiles en su repo + resumen en su Issue
+- Validador W3C y Lighthouse (Día 9 del plan)
