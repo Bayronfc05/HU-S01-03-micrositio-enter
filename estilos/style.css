@@ -21,7 +21,6 @@ body {
     line-height: 1.6;
 }
 
-
 header {
     background-color: var(--color-primario);
     color: white;
@@ -29,9 +28,9 @@ header {
 }
 
 header h1 {
-  font-family: 'Space Grotesk', var(--font-base);
-  font-size: 2rem;
-  letter-spacing: -0.02em;
+    font-family: 'Space Grotesk', var(--font-base);
+    font-size: 2rem;
+    letter-spacing: -0.02em;
 }
 
 nav ul {
@@ -56,7 +55,7 @@ nav a:focus-visible {
 }
 
 main {
-    max-width: 1200px;
+    max-width: 1200px; /* Ancho máximo del contenedor principal */
     margin: 3rem auto;
     padding: 0 1rem;
 }
@@ -130,6 +129,14 @@ th {
     background-color: #eef2f7;
 }
 
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: rgba(200, 6, 6, 0.05);
+}
+
 code {
     background-color: #eef2f7;
     padding: 0.15rem 0.4rem;
@@ -146,55 +153,83 @@ pre {
 
 /* ===== LÍNEA DE TIEMPO DE LAS 9 ETAPAS ===== */
 .linea-tiempo {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
-  position: relative;
-  max-width: 700px;
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho de main */
 }
 
 .linea-tiempo::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background-color: var(--color-secundario);
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-secundario);
 }
 
+/* Tarjeta individual del paso */
 .paso {
-  position: relative;
-  padding-left: 3.5rem;
-  margin-bottom: 2.5rem;
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem 1.25rem 3.5rem; /* Padding izquierdo amplio para dar espacio al círculo rojo */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 3px solid var(--color-secundario);
+    overflow: hidden; /* Evita que el número gigante se desborde */
 }
 
+/* Círculo rojo de la línea de tiempo */
+.paso::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 1.5rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-secundario);
+    border: 3px solid var(--color-fondo);
+    z-index: 2;
+}
+
+/* Marca de agua (Número gigante en la esquina derecha) */
 .paso::before {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 0.3rem;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--color-secundario);
-  border: 3px solid var(--color-fondo);
-  z-index: 1;
+    content: attr(data-num);
+    position: absolute;
+    right: 1.5rem;
+    top: -0.5rem;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(200, 6, 6, 0.08);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Asegura que el texto quede por encima del número gigante */
+.paso > * {
+    position: relative;
+    z-index: 1;
 }
 
 .paso h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
 }
 
 .paso .quien-lo-hace {
-  font-size: 0.9rem;
-  color: #6b7280;
+    font-size: 0.9rem;
+    color: #6b7280;
 }
 
 .paso .analogia {
-  font-style: italic;
-  margin-top: 0.5rem;
+    font-style: italic;
+    margin-top: 0.5rem;
 }
 
 /* Responsive */
@@ -210,27 +245,4 @@ pre {
     main {
         margin: 2rem auto;
     }
-}
-
-.paso h3::before {
-  content: attr(data-num);
-  font-size: 3rem;
-  font-weight: 800;
-  color: rgba(200, 6, 6, 0.1);
-  float: right;
-  line-height: 1;
-}
-.paso {
-  background: white;
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  border-left: 3px solid var(--color-secundario);
-}
-
-tbody tr {
-  transition: background-color 0.2s;
-}
-tbody tr:hover {
-  background-color: rgba(200, 6, 6, 0.05);
 }
