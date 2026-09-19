@@ -29,7 +29,9 @@ header {
 }
 
 header h1 {
-    margin-bottom: 1rem;
+  font-family: 'Space Grotesk', var(--font-base);
+  font-size: 2rem;
+  letter-spacing: -0.02em;
 }
 
 nav ul {
