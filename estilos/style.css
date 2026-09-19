@@ -5,7 +5,7 @@
     --color-fondo: #f8fafc;
     --color-texto: #1f2937;
     --color-gris: #000000;
-    --font-base: Optima, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-base: 'Space Grotesk', Optima, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -198,7 +198,7 @@ pre {
 }
 
 /* Marca de agua (Número gigante en la esquina derecha) */
-.paso::before {
+.paso h3::before {
     content: attr(data-num);
     position: absolute;
     right: 1.5rem;
@@ -232,6 +232,51 @@ pre {
     margin-top: 0.5rem;
 }
 
+/* ===== ESTILOS PARA EL GLOSARIO ===== */
+.glosario-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.glosario-item {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--color-secundario);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glosario-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.glosario-item dt {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primario);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.glosario-item dt .num {
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.glosario-item dd {
+    margin-left: 0;
+    color: var(--color-texto);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     header {
@@ -244,5 +289,11 @@ pre {
     
     main {
         margin: 2rem auto;
+    }
+
+    .paso h3::before {
+        font-size: 5rem;
+        top: 0;
+        right: 0.8rem;
     }
 }
