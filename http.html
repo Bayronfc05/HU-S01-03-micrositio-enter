@@ -98,3 +98,39 @@
           <tr>
             <td>ETag</td>
             <td>"6aa9f9bc-689"</td>
+            <td>Identificador único de esta versión del archivo; sirve para validar si cambió y así devolver un 304 en vez de reenviar todo.</td>
+          </tr>
+          <tr>
+            <td>X-Served-By</td>
+            <td>cache-bog-skbo2340037-BOG</td>
+            <td>Nodo exacto de la CDN de Fastly que respondió — en este caso, uno en Bogotá, Colombia.</td>
+          </tr>
+          <tr>
+            <td>Via</td>
+            <td>1.1 varnish</td>
+            <td>Confirma que la petición pasó por un proxy/acelerador basado en Varnish antes de llegar a mí.</td>
+          </tr>
+          <tr>
+            <td>X-Fastly-Request-ID</td>
+            <td>0f2d0052f1be5869a97c6d07e379b41e18596505</td>
+            <td>ID único de esta solicitud dentro de la red de Fastly, útil para rastreo/debug.</td>
+          </tr>
+          <tr>
+            <td>Access-Control-Allow-Origin</td>
+            <td>*</td>
+            <td>Permite que cualquier origen (cualquier otro sitio web) pueda pedir este recurso vía CORS.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Dato interesante: el header <code>X-Served-By</code> confirma que la respuesta la atendió
+      un nodo de la CDN de Fastly ubicado en Bogotá (<code>BOG</code>), no un servidor en Estados
+      Unidos — por eso la latencia hacia mi propio sitio es tan baja comparada con otros dominios
+      que sí viajan hasta EE. UU. (como vimos en los experimentos X2 y X3).</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Micrositio educativo — Fundación CEPAV, Impulso Digital. Bayron Fuentes, 2026.</p>
+  </footer>
+</body>
+</html>
