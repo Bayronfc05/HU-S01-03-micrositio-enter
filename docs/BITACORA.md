@@ -254,3 +254,36 @@
 **Mañana arranco por**
 - Peer review al Estudiante 4: 5 comentarios útiles en su repo + resumen en su Issue
 - Validador W3C y Lighthouse (Día 9 del plan)
+
+
+## Día 9 — 19 de septiembre de 2026
+
+**Horas efectivas:** 5 h 30 min (práctica: 4:20 · teoría: 30 min · coach: 40 min)
+
+**Qué estudié**
+- Criterios del validador W3C para HTML semántico y cómo interpretar sus reportes de errores
+- Métricas de Lighthouse (móvil): qué evalúan las categorías de Accesibilidad y Buenas prácticas
+
+**Qué construí**
+- Validación de las 4 páginas del sitio en el validador del W3C: **sin errores**
+- Corrida de Lighthouse (móvil) en las 4 páginas: **Accesibilidad y Buenas prácticas, ambas > 90** (RC-11 cumplido)
+- Mejoras de estilo en `style.css`:
+  - Nueva tipografía (`Space Grotesk`) aplicada al header y a los títulos
+  - Rediseño de la línea de tiempo: cada paso ahora es una tarjeta individual (`.paso`), con círculo en el eje vertical, borde lateral de color y el número de etapa como marca de agua de fondo
+  - Resaltado de fila al pasar el mouse (`tbody tr:hover`) en las tablas de `dns.html`, `http.html` y `https.html`
+  - Nueva sección de glosario (`.glosario-lista`, `.glosario-item`) en grid responsive, con estilo dinámico: elevación y sombra al hacer hover sobre cada término
+- Redacción de la agenda de la Mentoría 2, con los bloqueos y temas a llevar
+
+**En qué me atasqué y cómo salí**
+- Problema: intenté hacer el peer review al Estudiante 4 (HU-S01-04), pero su repositorio está **vacío** — no hay nada que revisar ni comentar
+- Solución: dejé un comentario en su Issue documentando que revisé su repo en la fecha correspondiente y que no encontré contenido para dejar los 5 comentarios que pide la plantilla de Peer Review; quedo pendiente de volver a intentarlo si él sube avances antes del cierre del sprint, ademas lo agregue como bloqueo de la mentoria para tener claridad al respecto.
+
+**Uso de IA hoy**
+- No usé IA para tareas nuevas hoy
+
+**Lo que hoy no entendí y voy a llevar a mentoría**
+- (nada bloqueante hoy)
+
+**Mañana arranco por**
+- **Mentoría 2** (según mi plan de ataque: 1 h técnica + 1 h de ensayo de demo), con la agenda que preparé hoy
+- Empezar a adelantar las correcciones de `README.md` y `NEGOCIO.md`.
