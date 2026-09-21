@@ -287,3 +287,33 @@
 **Mañana arranco por**
 - **Mentoría 2** (según mi plan de ataque: 1 h técnica + 1 h de ensayo de demo), con la agenda que preparé hoy
 - Empezar a adelantar las correcciones de `README.md` y `NEGOCIO.md`.
+
+## Día 10 — 20 de septiembre de 2026
+
+**Horas efectivas:**  5h (práctica: 3 h · teoría: 1 h · ensayo de demo: 1 h)
+
+**Qué estudié**
+- Estrategias de comunicación técnica y síntesis para la presentación oral del Demo Day
+- Revisión de la rúbrica de evaluación final y lista de verificación de entregables
+
+**Qué construí**
+- Reestructuración final de `README.md`: secciones de "para quién", "decisiones técnicas tomadas" y capturas visuales reales de la interfaz (`docs/capturas/`)
+- `docs/NEGOCIO.md` actualizado con análisis de costos en COP ajustado a la TRM real y viabilidad de GitHub Pages como hosting
+- Ajustes de UX/CSS: navegación fija (`position: sticky`) y desplazamiento fluido hacia la sección del glosario desde `dns.html`, `http.html` y `https.html`
+- Ensayo de la demostración oral del recorrido de las 9 etapas del flujo HTTP/HTTPS
+
+**En qué me atasqué y cómo salí**
+- Pendiente sin resolver: el peer review al Estudiante 4 sigue sin poderse completar — su repositorio continúa vacío. Queda como tema a confirmar en la Mentoría 2 de mañana: qué hacer si sigue así hasta el cierre del sprint
+
+**Uso de IA hoy**
+| Qué pregunté | Qué hice con la respuesta | ¿Entendí? |
+|---|---|---|
+| Cómo implementar nav fijo en CSS sin desfasar el diseño | Apliqué `position: sticky; top: 0; z-index: 1000;` en `style.css` | Sí — comprendí la ventaja de `sticky` sobre `fixed` |
+| Rutas para enlace del glosario desde páginas secundarias | Usé `index.html#glosario` en `dns.html`, `http.html` y `https.html` | Sí — entendí la navegación por anclas relativas entre archivos |
+
+**Lo que hoy no entendí y voy a llevar a mentoría**
+- Qué hacer con el peer review si el compañero no sube contenido antes del cierre
+
+**Mañana arranco por**
+- **Mentoría 2** (1 h técnica + 1 h ensayo de demo), con la agenda ya redactada el Día 9
+- Corregir los hallazgos que salgan de la mentoría, avanzando hacia el congelamiento de código (Día 12 del plan)
