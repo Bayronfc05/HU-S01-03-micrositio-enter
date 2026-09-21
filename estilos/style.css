@@ -25,6 +25,10 @@ header {
     background-color: var(--color-primario);
     color: white;
     padding: 2rem;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
@@ -52,6 +56,10 @@ nav a:focus-visible {
     background-color: var(--color-secundario);
     outline: 2px solid white;
     outline-offset: 2px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 main {
