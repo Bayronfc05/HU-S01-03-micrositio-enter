@@ -60,7 +60,7 @@
 
                 <li id="paso-4" class="paso">
                     <h3 data-num="4">4. Handshake TLS y verificación del certificado</h3>
-                    <p class="que-pasa">Si el sitio usa HTTPS (como el tuyo), después de la conexión TCP hay un segundo saludo, esta vez para cifrar la comunicación. Tu navegador y el servidor se ponen de acuerdo en cómo van a encriptar los datos, y el servidor le muestra a tu navegador un <strong>certificado</strong> que prueba que es realmente quien dice ser (emitido por una entidad de confianza, como Let's Encrypt).</p>
+                    <p class="que-pasa">Si el sitio usa HTTPS, después de la conexión TCP hay un segundo saludo, esta vez para cifrar la comunicación. Tu navegador y el servidor se ponen de acuerdo en cómo van a encriptar los datos, y el servidor le muestra a tu navegador un <strong>certificado</strong> que prueba que es realmente quien dice ser (emitido por una entidad de confianza, como Let's Encrypt).</p>
                     <p class="quien-lo-hace">El navegador verifica el certificado; el servidor lo presenta.</p>
                     <p class="analogia">Es como pedirle su cédula a alguien antes de contarle un secreto: primero confirmas que es quien dice ser, y de paso acuerdan un "código secreto" que solo ustedes dos van a entender durante la conversación.</p>
                 </li>
@@ -75,7 +75,7 @@
                 <li id="paso-6" class="paso">
                     <h3 data-num="6">6. El servidor procesa y responde con un código de estado</h3>
                     <p class="que-pasa">El servidor recibe la petición, busca lo que le pidieron, y responde con el contenido más un <strong>código de estado</strong> que resume qué pasó: 200 si todo salió bien, 404 si no encontró la página, 500 si algo falló del lado del servidor, entre otros.</p>
-                    <p class="quien-lo-hace">El servidor de destino (en mi caso, la infraestructura de GitHub Pages).</p>
+                    <p class="quien-lo-hace">El servidor de destino.</p>
                     <p class="analogia">Es como cuando el mesero vuelve de la cocina: o te trae el plato (200), o te dice "eso ya no está en el menú" (404), o "hubo un problema en la cocina" (500).</p>
                 </li>
 
